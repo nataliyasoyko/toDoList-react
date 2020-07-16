@@ -1,0 +1,23 @@
+.buttons__button {
+    border: none;
+    padding: 8px 12px;
+    color: teal;
+    background-color: transparent;
+    font-size: 18px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+@media(max-width: 767px) {
+    .buttons__button {
+        display: block;
+    }
+}
+
+.buttons__button:hover {
+    color: hsl(180, 100%, 30%);
+}
+
+.buttons__button:disabled {
+    color: grey;
+}
