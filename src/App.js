@@ -12,7 +12,7 @@ const [hideDone, setHideDone] = useState(false);
 const[tasks, setTasks] = useState([
   {id: 1, content: "przejść na Reacta", done: false},
   {id: 2, content: "zrobić sobie wakację", done: true}
-])
+]);
 
 const toggleHideDone = () => {
   setHideDone(hideDone => !hideDone);
@@ -29,6 +29,13 @@ const toggleTaskDone = (id) => {
     }
     return task;
   }));
+};
+
+const setAllDone = () => {
+  setTasks(tasks => tasks.map(task => ({
+    ...task, 
+    done: true,
+  })));
 }
 
   return (
@@ -44,9 +51,20 @@ const toggleTaskDone = (id) => {
 
         <Section 
           title="Lista zadań" 
-          extraHeaderContent={<Buttons tasks={tasks} hideDone={hideDone} toggleHideDone={toggleHideDone} />}
-          body={<Tasks tasks={tasks} hideDone={hideDone}  removeTask={removeTask} 
-          toggleTaskDone={toggleTaskDone} />}
+          extraHeaderContent={
+          <Buttons 
+            tasks={tasks} 
+            hideDone={hideDone} 
+            toggleHideDone={toggleHideDone} 
+            setAllDone={setAllDone}
+          />}
+          body={
+          <Tasks 
+            tasks={tasks} 
+            hideDone={hideDone}  
+            removeTask={removeTask} 
+            toggleTaskDone={toggleTaskDone} 
+          />}
         />
 
     </Container>  
