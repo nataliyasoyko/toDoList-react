@@ -39,6 +39,7 @@ const setAllDone = () => {
 };
 
 const addNewTask = (content) => {
+  if(content !== ""){
   setTasks(tasks => [
     ...tasks,
     {
@@ -46,7 +47,7 @@ const addNewTask = (content) => {
       done: false,
       id: tasks.length  ? tasks[tasks.length - 1].id + 1 : 1,
     },
-  ]);
+  ]);}
 };
 
   return (
