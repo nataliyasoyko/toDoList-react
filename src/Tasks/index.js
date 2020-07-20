@@ -13,7 +13,7 @@ const Tasks = ({tasks, hideDone, removeTask, toggleTaskDone}) => (
                 className="tasks__button tasks__button--done">
                 <i className={`fas fa-check${task.done ? "" : " fa-check--none" }`}></i>
             </button>
-            <span className={`tasks__text${task.done ? " tasks__text--done" : ""}`}>{task.content}</span>
+        <span className={`tasks__text${task.done ? " tasks__text--done" : ""}`}>{task.id} - {task.content}</span>
             <button  
                 onClick={() => removeTask(task.id)}
                 className="tasks__button tasks__button--delete">
