@@ -1,18 +1,20 @@
 import React from "react";
 import "./style.css";
 
-const Tasks = (props) => (
+const Tasks = ({tasks, hideDone, removeTask}) => (
     <ul 
     className="tasks__items">
-        {props.tasks.map(task => (
+        {tasks.map(task => (
             <li
-            key={task.id} className={`tasks__item${task.done && props.hideDone ? " tasks__item--hidden" : ""}`}
+            key={task.id} className={`tasks__item${task.done && hideDone ? " tasks__item--hidden" : ""}`}
             >
             <button className="tasks__button tasks__button--done">
             <i className={`fas fa-check${task.done ? "" : " fa-check--none" }`}></i>
             </button>
             <span className={`tasks__text${task.done ? " tasks__text--done" : ""}`}>{task.content}</span>
-            <button className="tasks__button tasks__button--delete">
+            <button  
+            onClick={() => removeTask(task.id)}
+            className="tasks__button tasks__button--delete">
             <i className="far fa-trash-alt"></i>
             </button>
             </li>
